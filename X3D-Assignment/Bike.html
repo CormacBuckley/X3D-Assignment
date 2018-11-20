@@ -9,7 +9,7 @@
 
 <body>
 
-    <x3d width='1200' height=$(window).height()>
+    <x3d width='1300' height=$(window).height()>
         <scene DEF='scene'>
             <Group Def='Rear Wheel'>
 
@@ -127,7 +127,7 @@
 
 
             <Group Def='Front Wheel'>
-                <Transform translation="9.8 0 0">
+                <Transform translation="9.72 0 0">
                     <!--Wheel-->
                     <!--Wheel-->
                     <Shape>
@@ -242,7 +242,7 @@
 
 
             <Group Def='Gears'>
-                <!--Thru Axle-->
+                <!--Thru Axle Rear-->
 
                 <Shape>
                     <appearance>
@@ -255,19 +255,55 @@
                 <Transform translation='0 0.1 0'>
                     <Shape>
                         <appearance>
-                            <material diffuseColor='0 0 0'></material>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
                         </appearance>
                         <cylinder radius='0.25' height='0.05' />
                     </Shape>
                 </Transform>
 
+                <Transform translation='0 0.16 0'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.23' height='0.05' />
+                    </Shape>
+                </Transform>
+
+
+                <Transform translation='0 0.22 0'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.21' height='0.05' />
+                    </Shape>
+                </Transform>
+
+                <Transform translation='0 0.28 0'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.19' height='0.05' />
+                    </Shape>
+                </Transform>
+
+                <Transform translation='0 0.34 0'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.17' height='0.05' />
+                    </Shape>
+                </Transform>
 
             </Group>
 
 
             <Group Def="Frame Right">
 
-                <!--guide length-->
+                <!-- guide length
                 <Transform translation='4.9 0.2 0'>
                     <Transform rotation='0 0 1 1.5708'>
                         <Shape>
@@ -277,7 +313,7 @@
                             <cylinder height="9.72" radius="0.08" />
                         </Shape>
                     </Transform>
-                </Transform>
+                </Transform> -->
 
 
                 <!--Seat tube-->
@@ -293,6 +329,22 @@
                         </Transform>
                     </Transform>
                 </Transform>
+
+                <!--Saddle tube-->
+                <Transform translation='2.65 0 -4.5'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Transform rotation='1 0 0 -1.317724'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.75 0.1 0'></material>
+                                </appearance>
+                                <cylinder height="3" radius="0.08" />
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </Transform>
+
+
 
                 <!--Chainstay-->
                 <Transform translation='1.95 0.3 0.3'>
@@ -312,25 +364,36 @@
 
                 <Transform translation='1.35 0.3 -1.7'>
                     <Transform rotation='1 0 1 1.5708'>
-                            <Transform rotation='0 0 1 -0.174533'>
+                        <Transform rotation='0 0 1 -0.174533'>
+
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="4.55" radius="0.08" />
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </Transform>
+
+                <!--Seat stay connector-->
+                <Transform translation='2.83 0 -3.4'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0.75 0.75 0.75'></material>
+                            </appearance>
+                            <cylinder height="0.3" radius="0.12" />
+                        </Shape>
+                    </Transform>
+                </Transform>
+                <!--Top tube guide-->
+                <Transform translation='5.35 0 -3.45'>
+                    <Transform rotation='0 0 1 1.5708'>
 
                         <Shape>
                             <appearance>
                                 <material diffuseColor='1 1 0'></material>
-                            </appearance>
-                            <cylinder height="4.55" radius="0.08" />
-                        </Shape>
-                    </Transform>
-</Transform>
-                </Transform>
-
-
-                <!--Top tube guide-->
-                <Transform translation='5.35 0 -3.1'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='0 0 0'></material>
                             </appearance>
                             <cylinder height="5.08" radius="0.08" />
                         </Shape>
@@ -350,7 +413,7 @@
                 </Transform>
 
                 <!-- Head tube-->
-                <Transform translation='8.1 0 -2.7'>
+                <Transform translation='7.9 0 -3.1'>
                     <Transform rotation='0 0 1 1.5708'>
                         <Transform rotation='1 0 0 -1.2522737'>
                             <Shape>
@@ -363,51 +426,194 @@
                     </Transform>
                 </Transform>
 
+                <!-- Under Head tube-->
+                <Transform translation='8.04 0 -2.7'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.1 0.1 0'></material>
+                        </appearance>
+                        <cylinder height="0.5" radius="0.08" />
+                    </Shape>
+                </Transform>
+
             </Group>
 
-            <Group Def="Frame Left">              
+            <Group Def="Frame Left">
 
-                    <!--Chainstay-->
-                    <Transform translation='1.95 -0.3 0.3'>
-                        <Transform rotation='0 0 1 1.5708'>
-                            <Transform rotation='1 0 -1 -0.174533'>
-                                <Shape>
-                                    <appearance>
-                                        <material diffuseColor='1 1 0'></material>
-                                    </appearance>
-                                    <cylinder height="4.1" radius="0.08" />
-                                </Shape>
-                            </Transform>
-                        </Transform>
-                    </Transform>
-
-                    <!--Seatstay-->
-                    <Transform translation='1.35 -0.3 -1.7'>
-                            <Transform rotation='-1 0 -1 1.5708'>
-                                    <Transform rotation='0 0 -1 -0.174533'>
-        
-                                <Shape>
-                                    <appearance>
-                                        <material diffuseColor='255 255 0'></material>
-                                    </appearance>
-                                    <cylinder height="4.55" radius="0.08" />
-                                </Shape>
-                            </Transform>
-        </Transform>
-                        </Transform>
-
-
-                    <!--Top tube guide-->
-                    <Transform translation='5.35 0.42 -3.1'>
-                        <Transform rotation='0 0 1 1.5708'>
+                <!--Chainstay-->
+                <Transform translation='1.95 -0.3 0.3'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Transform rotation='1 0 -1 -0.174533'>
                             <Shape>
                                 <appearance>
-                                    <material diffuseColor='0 0 0'></material>
+                                    <material diffuseColor='1 1 0'></material>
                                 </appearance>
-                                <cylinder height="5.08" radius="0.08" />
+                                <cylinder height="4.1" radius="0.08" />
                             </Shape>
                         </Transform>
                     </Transform>
+                </Transform>
+
+                <!--Seatstay-->
+                <Transform translation='1.35 -0.3 -1.7'>
+                    <Transform rotation='-1 0 -1 1.5708'>
+                        <Transform rotation='0 0 -1 -0.174533'>
+
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='255 255 0'></material>
+                                </appearance>
+                                <cylinder height="4.55" radius="0.08" />
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </Transform>
+            </Group>
+
+            <Group DEF='Front Forks'>
+
+                <!-- Left Fork-->
+                <Transform translation='8.85 -0.25 -1.35'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Transform rotation='1 0 0 -1.0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="3.3" radius="0.08" />
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </Transform>
+
+
+                <!-- Right Fork-->
+                <Transform translation='8.85 0.25 -1.35'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Transform rotation='1 0 0 -1.0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="3.3" radius="0.08" />
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </Transform>
+
+
+                <!--Thru Axle Front-->
+                <Transform translation="9.72 0 0">
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0 0 0'></material>
+                        </appearance>
+                        <cylinder radius='0.05' height='0.7' />
+                    </Shape>
+                </Transform>
+            </Group>
+
+            <Group DEF='Handlebars'>
+                <!-- Steerer block-->
+                <Transform translation='7.75 0 -3.6'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='1 1 0'></material>
+                            </appearance>
+                            <box size='0.2,0.2,0.2' />
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+                <!-- Steerer block-->
+                <Transform translation='8.05 0 -3.7'>
+                    <Transform rotation='0 0 1 1.5708'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='1 1 0'></material>
+                            </appearance>
+                            <box size='0.2,0.6,0.2' />
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+                <!-- Bars-->
+                <Transform translation='8.45 0 -3.7'>
+
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0 0 0'></material>
+                        </appearance>
+                        <box size='0.2,4.2,0.2' />
+                    </Shape>
+
+                </Transform>
+
+                <!-- Steerer block-->
+                <Transform translation='7.75 0 -3.7'>
+
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0 0.5 0'></material>
+                        </appearance>
+                        <sphere radius='0.1' />
+                    </Shape>
+
+                </Transform>
+
+            </Group>
+
+
+            <Group DEF='Drivetrain'>
+
+                <!--Chainring-->
+                <Transform translation='3.95 0.25 0.5'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.4' height='0.05' />
+                    </Shape>
+                </Transform>
+
+
+                <!--Bottom Bracket-->
+                <Transform translation='3.95 0 0.5'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.1' height='0.5' />
+                    </Shape>
+                </Transform>
+
+
+                <!--Right Crank-->
+                <Transform translation='4.35 0.25 0.6'>
+                    <Transform rotation='0 1 0 -0.261799'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0.7 0.7'></material>
+                            </appearance>
+                            <box size='0.9, 0.1, 0.1' />
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+
+                <!--Left Crank-->
+                <Transform translation='3.55 -0.25 0.4'>
+                    <Transform rotation='0 1 0 -0.261799'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0.7 0.7'></material>
+                            </appearance>
+                            <box size='0.9, 0.1, 0.1' />
+                        </Shape>
+                    </Transform>
+                </Transform>
+
             </Group>
 
 
