@@ -11,6 +11,41 @@
 
     <x3d width='1300' height=$(window).height()>
         <scene DEF='scene'>
+
+                <Shape>
+                        <Appearance>
+                        <Material diffuseColor='1 1 0'/>
+                        </Appearance>
+                        <!-- The coordIndex rows are: front, back, sides -->
+                        <IndexedFaceSet coordIndex= 
+                       '0, 1, 2, 3, 4, 5, 6, -1,
+                        0, 12, 11, 10, 9, 8, 7, -1,
+                        0, 12, 1, 1,
+                        0, 7, 8, 2, -1,
+                        0, 7, 9, 3, -1,
+                        0, 9, 10, 4, -1,
+                        0, 10, 11, 5, -1,
+                        0, 11, 12, 6, -1,
+                        0, 11, 12, -1'
+                        convex = 'false' >
+                        <!-- 1st block of point coordinates: lighting bolt tip
+                        2nd block: front perimeter 3rd block: back perimeter -->
+                        <Coordinate point= 
+                        '0.0 -3.0 0.0,
+                        0.0 -2.0 1.0,
+                        0.0 0.0 1.0,
+                        0.0 2.0 1.0,
+                        0.0 3.0 0.0,
+                        0.0 -2.0 0.25, 
+                        0.0 2.0 0.25,
+                       -5.0 0.0 0.0,
+                        -6.0 0.0 1.0,
+                        -5.0 0.0 2.0,
+                        -3.0 0.0 1.0,
+                        -1.0 0.0 1.0,
+                        -2.0 0.0 1.0 ' />
+                        </IndexedFaceSet>
+                        </Shape> 
             <Group Def='Rear Wheel'>
 
                 <!--Wheel-->
@@ -545,7 +580,7 @@
                         <appearance>
                             <material diffuseColor='0 0 0'></material>
                         </appearance>
-                        <box size='0.2,4.2,0.2' />
+                        <cylinder radius='0.2' height='4.2' />
                     </Shape>
 
                 </Transform>
@@ -594,7 +629,7 @@
                     <Transform rotation='0 1 0 -0.261799'>
                         <Shape>
                             <appearance>
-                                <material diffuseColor='0 0.7 0.7'></material>
+                                <material diffuseColor='0 0 0'></material>
                             </appearance>
                             <box size='0.9, 0.1, 0.1' />
                         </Shape>
@@ -607,7 +642,7 @@
                     <Transform rotation='0 1 0 -0.261799'>
                         <Shape>
                             <appearance>
-                                <material diffuseColor='0 0.7 0.7'></material>
+                                <material diffuseColor='0 0 0'></material>
                             </appearance>
                             <box size='0.9, 0.1, 0.1' />
                         </Shape>
@@ -615,8 +650,6 @@
                 </Transform>
 
             </Group>
-
-
         </scene>
     </x3d>
 </body>
