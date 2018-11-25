@@ -8,168 +8,19 @@
 </head>
 
 <body>
-
+<h1 style="text-align: center; ">CT404 Bike</h1>
     <x3d width='1300' height=$(window).height()>
         <scene DEF='scene'>
 
-                <Shape>
-                        <Appearance>
-                        <Material diffuseColor='1 1 0'/>
-                        </Appearance>
-                        <!-- The coordIndex rows are: front, back, sides -->
-                        <IndexedFaceSet coordIndex= 
-                       '0, 1, 2, 3, 4, 5, 6, -1,
-                        0, 12, 11, 10, 9, 8, 7, -1,
-                        0, 12, 1, 1,
-                        0, 7, 8, 2, -1,
-                        0, 7, 9, 3, -1,
-                        0, 9, 10, 4, -1,
-                        0, 10, 11, 5, -1,
-                        0, 11, 12, 6, -1,
-                        0, 11, 12, -1'
-                        convex = 'false' >
-                        <!-- 1st block of point coordinates: lighting bolt tip
-                        2nd block: front perimeter 3rd block: back perimeter -->
-                        <Coordinate point= 
-                        '0.0 -3.0 0.0,
-                        0.0 -2.0 1.0,
-                        0.0 0.0 1.0,
-                        0.0 2.0 1.0,
-                        0.0 3.0 0.0,
-                        0.0 -2.0 0.25, 
-                        0.0 2.0 0.25,
-                       -5.0 0.0 0.0,
-                        -6.0 0.0 1.0,
-                        -5.0 0.0 2.0,
-                        -3.0 0.0 1.0,
-                        -1.0 0.0 1.0,
-                        -2.0 0.0 1.0 ' />
-                        </IndexedFaceSet>
-                        </Shape> 
             <Group Def='Rear Wheel'>
+                <Transform DEF="RearWheel">
 
-                <!--Wheel-->
-                <Shape>
-                    <appearance>
-                        <material diffuseColor='0.5 0 0'></material>
-                    </appearance>
-                    <Cylinder bottom="false" top="false" solid="false" height='0.23' radius='3.11' />
-                </Shape>
-
-                <!--Hub-->
-                <Shape>
-                    <appearance>
-                        <material diffuseColor='1 0 0'></material>
-                    </appearance>
-                    <cylinder radius='0.15' height='0.1' />
-                </Shape>
-
-                <!--Spoke-->
-                <Transform rotation='1 0 0 1.5708'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='1 0 0'></material>
-                        </appearance>
-                        <cylinder radius='0.05' height='6.20' />
-                    </Shape>
-                </Transform>
-
-
-                <!--Spoke-->
-                <Transform rotation='0 0 1 1.5708'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='1 0 0'></material>
-                        </appearance>
-                        <cylinder radius='0.05' height='6.20' />
-                    </Shape>
-                </Transform>
-
-
-                <!--Spoke-->
-                <Transform rotation='0 0 1 1.5708'>
-                    <Transform rotation='1 0 0 0.785398'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-                <!--Spoke-->
-                <Transform rotation='0 0 1 1.5708'>
-                    <Transform rotation='1 0 0 -0.785398'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-                <!--Spoke-->
-                <Transform rotation='0 0 1 1.5708'>
-                    <Transform rotation='1 0 0 -0.3926991'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-                <!--Spoke-->
-                <Transform rotation='0 0 1 1.5708'>
-                    <Transform rotation='1 0 0 0.3926991'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-                <!--Spoke-->
-                <Transform rotation='1 0 0 1.5708'>
-                    <Transform rotation='0 0 1 0.3926991'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-                <!--Spoke-->
-                <Transform rotation='1 0 0 1.5708'>
-                    <Transform rotation='0 0 1 -0.3926991'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 0 0'></material>
-                            </appearance>
-                            <cylinder radius='0.05' height='6.20' />
-                        </Shape>
-                    </Transform>
-                </Transform>
-
-            </Group>
-
-
-            <Group Def='Front Wheel'>
-                <Transform translation="9.72 0 0">
-                    <!--Wheel-->
                     <!--Wheel-->
                     <Shape>
                         <appearance>
                             <material diffuseColor='0.5 0 0'></material>
                         </appearance>
-                        <Cylinder bottom="false" top="false" solid="false" height='0.28' radius='3.11' />
+                        <Cylinder bottom="false" top="false" solid="false" height='0.23' radius='3.11' />
                     </Shape>
 
                     <!--Hub-->
@@ -273,83 +124,2382 @@
                             </Shape>
                         </Transform>
                     </Transform>
+
+                    <Group Def='Gears'>
+                        <!--Thru Axle Rear-->
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='1 0 0'></material>
+                            </appearance>
+                            <cylinder radius='0.05' height='1' />
+                        </Shape>
+
+                        <!--First Gear-->
+                        <Transform translation='0 0.1 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <cylinder radius='0.25' height='0.05' />
+                            </Shape>
+
+                            <Transform translation='0.18 0 -0.2 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.18 0 -0.2 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.18 0 0.2 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.18 0 0.2 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.27 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='-0.27 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+
+                            <Transform translation='0 0 0.27 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='0 0 -0.27 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            </Transfrom>
+                        </Transform>
+
+                        <!--Second Gear-->
+
+                        <Transform translation='0 0.16 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <cylinder radius='0.23' height='0.05' />
+                            </Shape>
+
+                            <Transform translation='0.16 0 -0.18 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.16 0 -0.18 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.16 0 0.18 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.16 0 0.18 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.25 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='-0.25 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+
+                            <Transform translation='0 0 0.25 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='0 0 -0.25 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                        </Transform>
+
+                        <!--Third Gear-->
+                        <Transform translation='0 0.22 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <cylinder radius='0.21' height='0.05' />
+                            </Shape>
+
+                            <Transform translation='0.15 0 -0.17'>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.15 0 -0.17 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.15 0 0.17 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.15 0 0.17 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.23 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='-0.23 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+
+                            <Transform translation='0 0 0.23 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='0 0 -0.23 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                        </Transform>
+                        <!--Fourth Gear-->
+                        <Transform translation='0 0.28 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <cylinder radius='0.19' height='0.05' />
+                            </Shape>
+
+                            <Transform translation='0.13 0 -0.16 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.13 0 -0.16 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.13 0 0.16 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.13 0 0.16 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.21 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='-0.21 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+
+                            <Transform translation='0 0 0.21 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='0 0 -0.21 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                        </Transform>
+                        <!--Fifth Gear-->
+                        <Transform translation='0 0.34 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <cylinder radius='0.17' height='0.05' />
+                            </Shape>
+
+                            <Transform translation='0.11 0 -0.14 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.11 0 -0.14 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.11 0 0.14 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='-0.11 0 0.14 '>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0.7 0.7 0.7'></material>
+                                        </appearance>
+                                        <box size='0.05,0.05,0.05' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.19 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='-0.19 0 0 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+
+                            <Transform translation='0 0 0.19 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                            <Transform translation='0 0 -0.19 '>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+
+                        </Transform>
+
+                    </Group>
+
+
+
+
+                </Transform>
+
+                <!-- <timeSensor DEF='clock' cycleInterval='8' loop='true'></timeSensor>
+                <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
+                <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
+                <Route fromNode="spin" fromField="value_changed" toNode="RearWheel" toField="set_rotation"> </Route> -->
+
             </Group>
 
 
-            <Group Def='Gears'>
-                <!--Thru Axle Rear-->
 
-                <Shape>
-                    <appearance>
-                        <material diffuseColor='1 0 0'></material>
-                    </appearance>
-                    <cylinder radius='0.05' height='1' />
-                </Shape>
 
-                <!--Gears-->
-                <Transform translation='0 0.1 0'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.25' height='0.05' />
-                    </Shape>
+
+
+
+            <Group Def='Front Wheel'>
+
+                <Transform translation="9.72 0 0">
+                    <Transform DEF='FrontWheel'>
+                        <!--Wheel-->
+                        <!--Wheel-->
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0.5 0 0'></material>
+                            </appearance>
+                            <Cylinder bottom="false" top="false" solid="false" height='0.28' radius='3.11' />
+                        </Shape>
+
+                        <!--Hub-->
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='1 0 0'></material>
+                            </appearance>
+                            <cylinder radius='0.15' height='0.1' />
+                        </Shape>
+
+                        <!--Spoke-->
+                        <Transform rotation='1 0 0 1.5708'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 0 0'></material>
+                                </appearance>
+                                <cylinder radius='0.05' height='6.20' />
+                            </Shape>
+                        </Transform>
+
+
+                        <!--Spoke-->
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 0 0'></material>
+                                </appearance>
+                                <cylinder radius='0.05' height='6.20' />
+                            </Shape>
+                        </Transform>
+
+
+                        <!--Spoke-->
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 0.785398'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                        <!--Spoke-->
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 -0.785398'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                        <!--Spoke-->
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 -0.3926991'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                        <!--Spoke-->
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 0.3926991'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                        <!--Spoke-->
+                        <Transform rotation='1 0 0 1.5708'>
+                            <Transform rotation='0 0 1 0.3926991'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                        <!--Spoke-->
+                        <Transform rotation='1 0 0 1.5708'>
+                            <Transform rotation='0 0 1 -0.3926991'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 0 0'></material>
+                                    </appearance>
+                                    <cylinder radius='0.05' height='6.20' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+
+                    </Transform>
+
+                    <!-- <timeSensor DEF='clock' cycleInterval='8' loop='true'></timeSensor>
+                    <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
+                    <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
+                    <Route fromNode="spin" fromField="value_changed" toNode="FrontWheel" toField="set_rotation">
+                    </Route> -->
+            </Group>
+
+
+
+            <Group DEF='Chain'>
+                <Transform translation='4.2 0.25 0.08'>
+
+
+                    <Transform translation='-0.21 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-0.42 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-0.63 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-0.84 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-1.05 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-1.26 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-1.47 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-1.68 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-1.89 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-2.1 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-2.31 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-2.52 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-2.73 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+                    <Transform translation='-2.94 0 0'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder height="0.1" radius="0.04" />
+
+                        </Shape>
+                        <Transform translation='0 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+                        <Transform translation='0 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <cylinder height="0" radius="0.08" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 -0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0.1 0.049 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='1 1 0'></material>
+                                </appearance>
+                                <box size="0.13,0.01,0.03" />
+
+                            </Shape>
+                        </Transform>
+
+                    </Transform>
+
+                    <Transform translation='-3.15 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+
+                        <Transform translation='-3.36 0 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0 0 0'></material>
+                                    </appearance>
+                                    <cylinder height="0.1" radius="0.04" />
+        
+                                </Shape>
+                                <Transform translation='0 0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <cylinder height="0" radius="0.08" />
+        
+                                    </Shape>
+                                </Transform>
+                                <Transform translation='0 -0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <cylinder height="0" radius="0.08" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                                <Transform translation='0.1 -0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <box size="0.13,0.01,0.03" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                                <Transform translation='0.1 0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <box size="0.13,0.01,0.03" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                            </Transform>
+
+                            <Transform translation='-3.57 0 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0 0 0'></material>
+                                        </appearance>
+                                        <cylinder height="0.1" radius="0.04" />
+            
+                                    </Shape>
+                                    <Transform translation='0 0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
+            
+                                        </Shape>
+                                    </Transform>
+                                    <Transform translation='0 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                    <Transform translation='0.1 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                    <Transform translation='0.1 0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                </Transform>
+                                <Transform translation='-3.78 0 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='0 0 0'></material>
+                                            </appearance>
+                                            <cylinder height="0.1" radius="0.04" />
+                
+                                        </Shape>
+                                        <Transform translation='0 0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <cylinder height="0" radius="0.08" />
+                
+                                            </Shape>
+                                        </Transform>
+                                        <Transform translation='0 -0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <cylinder height="0" radius="0.08" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                        <Transform translation='0.1 -0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <box size="0.13,0.01,0.03" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                        <Transform translation='0.1 0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <box size="0.13,0.01,0.03" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                    </Transform>
                 </Transform>
 
-                <Transform translation='0 0.16 0'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.23' height='0.05' />
-                    </Shape>
-                </Transform>
+
+                <Transform translation='4.2 0.25 0.9'>
 
 
-                <Transform translation='0 0.22 0'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.21' height='0.05' />
-                    </Shape>
-                </Transform>
-
-                <Transform translation='0 0.28 0'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.19' height='0.05' />
-                    </Shape>
-                </Transform>
-
-                <Transform translation='0 0.34 0'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.17' height='0.05' />
-                    </Shape>
-                </Transform>
+                        <Transform translation='-0.21 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-0.42 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-0.63 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-0.84 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-1.05 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-1.26 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-1.47 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-1.68 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-1.89 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-2.1 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-2.31 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-2.52 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-2.73 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+                        <Transform translation='-2.94 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0 0 0'></material>
+                                </appearance>
+                                <cylinder height="0.1" radius="0.04" />
+    
+                            </Shape>
+                            <Transform translation='0 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+                            <Transform translation='0 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <cylinder height="0" radius="0.08" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 -0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                            <Transform translation='0.1 0.049 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='1 1 0'></material>
+                                    </appearance>
+                                    <box size="0.13,0.01,0.03" />
+    
+                                </Shape>
+                            </Transform>
+    
+                        </Transform>
+    
+                        <Transform translation='-3.15 0 0'>
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0 0 0'></material>
+                                    </appearance>
+                                    <cylinder height="0.1" radius="0.04" />
+        
+                                </Shape>
+                                <Transform translation='0 0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <cylinder height="0" radius="0.08" />
+        
+                                    </Shape>
+                                </Transform>
+                                <Transform translation='0 -0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <cylinder height="0" radius="0.08" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                                <Transform translation='0.1 -0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <box size="0.13,0.01,0.03" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                                <Transform translation='0.1 0.049 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='1 1 0'></material>
+                                        </appearance>
+                                        <box size="0.13,0.01,0.03" />
+        
+                                    </Shape>
+                                </Transform>
+        
+                            </Transform>
+    
+                            <Transform translation='-3.36 0 0'>
+                                    <Shape>
+                                        <appearance>
+                                            <material diffuseColor='0 0 0'></material>
+                                        </appearance>
+                                        <cylinder height="0.1" radius="0.04" />
+            
+                                    </Shape>
+                                    <Transform translation='0 0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
+            
+                                        </Shape>
+                                    </Transform>
+                                    <Transform translation='0 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                    <Transform translation='0.1 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                    <Transform translation='0.1 0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='1 1 0'></material>
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
+            
+                                        </Shape>
+                                    </Transform>
+            
+                                </Transform>
+    
+                                <Transform translation='-3.57 0 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <material diffuseColor='0 0 0'></material>
+                                            </appearance>
+                                            <cylinder height="0.1" radius="0.04" />
+                
+                                        </Shape>
+                                        <Transform translation='0 0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <cylinder height="0" radius="0.08" />
+                
+                                            </Shape>
+                                        </Transform>
+                                        <Transform translation='0 -0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <cylinder height="0" radius="0.08" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                        <Transform translation='0.1 -0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <box size="0.13,0.01,0.03" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                        <Transform translation='0.1 0.049 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='1 1 0'></material>
+                                                </appearance>
+                                                <box size="0.13,0.01,0.03" />
+                
+                                            </Shape>
+                                        </Transform>
+                
+                                    </Transform>
+                                    <Transform translation='-3.78 0 0'>
+                                            <Shape>
+                                                <appearance>
+                                                    <material diffuseColor='0 0 0'></material>
+                                                </appearance>
+                                                <cylinder height="0.1" radius="0.04" />
+                    
+                                            </Shape>
+                                            <Transform translation='0 0.049 0'>
+                                                <Shape>
+                                                    <appearance>
+                                                        <material diffuseColor='1 1 0'></material>
+                                                    </appearance>
+                                                    <cylinder height="0" radius="0.08" />
+                    
+                                                </Shape>
+                                            </Transform>
+                                            <Transform translation='0 -0.049 0'>
+                                                <Shape>
+                                                    <appearance>
+                                                        <material diffuseColor='1 1 0'></material>
+                                                    </appearance>
+                                                    <cylinder height="0" radius="0.08" />
+                    
+                                                </Shape>
+                                            </Transform>
+                    
+                                            <Transform translation='0.1 -0.049 0'>
+                                                <Shape>
+                                                    <appearance>
+                                                        <material diffuseColor='1 1 0'></material>
+                                                    </appearance>
+                                                    <box size="0.13,0.01,0.03" />
+                    
+                                                </Shape>
+                                            </Transform>
+                    
+                                            <Transform translation='0.1 0.049 0'>
+                                                <Shape>
+                                                    <appearance>
+                                                        <material diffuseColor='1 1 0'></material>
+                                                    </appearance>
+                                                    <box size="0.13,0.01,0.03" />
+                    
+                                                </Shape>
+                                            </Transform>
+                    
+                                        </Transform>
+                    </Transform>
 
             </Group>
 
 
             <Group Def="Frame Right">
-
-                <!-- guide length
-                <Transform translation='4.9 0.2 0'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='0 0 0'></material>
-                            </appearance>
-                            <cylinder height="9.72" radius="0.08" />
-                        </Shape>
-                    </Transform>
-                </Transform> -->
-
 
                 <!--Seat tube-->
                 <Transform translation='3.4 0 -1.6'>
@@ -549,26 +2699,52 @@
             </Group>
 
             <Group DEF='Handlebars'>
-                <!-- Steerer block-->
-                <Transform translation='7.75 0 -3.6'>
-                    <Transform rotation='0 0 1 1.5708'>
+                <Transform translation='7.5 0.05 -3.5'>
+                    <Transform scale='0.15,0.1,0.15'>
                         <Shape>
-                            <appearance>
-                                <material diffuseColor='1 1 0'></material>
-                            </appearance>
-                            <box size='0.2,0.2,0.2' />
-                        </Shape>
-                    </Transform>
-                </Transform>
+                            <Appearance>
+                                <Material diffuseColor='0 0 0' />
+                            </Appearance>
 
-                <!-- Steerer block-->
-                <Transform translation='8.05 0 -3.7'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='1 1 0'></material>
-                            </appearance>
-                            <box size='0.2,0.6,0.2' />
+                            <!--Back-->
+                            <!--Right side-->
+                            <!--Left side-->
+                            <!--First angled top piece-->
+                            <!--Second angled top piece-->
+                            <!--Long top piece-->
+                            <!--Front flat square-->
+                            <!--Front long slant-->
+                            <!--Front short slant-->
+                            <IndexedFaceSet coordIndex='
+                            15,0,1,8-1            
+                            0,7,6,5,4,3,2,1,-1 
+                            8,9,10,11,12,13,14,15,-1
+                            2,9,8,1,-1
+                            2,3,10,9,-1
+                            4,11,10,3,-1
+                            11,4,5,12,-1
+                            12,5,6,13, -1
+                            13,6,7,14, -1
+                            14,7,0,15,-1'>
+                                <!-- 1st block of point coordinates: lighting bolt tip
+                                                    2nd block: front perimeter 3rd block: back perimeter -->
+                                <Coordinate point='0.0 0.0 0.0,
+                                                    0.0 0.0 -1.0,
+                                                    1.0 0.0 -1.5,
+                                                    2.0 0.0 -1.75,
+                                                    4.0 0.0 -1.75,
+                                                    4.0 0.0 -1.0,
+                                                    2.5 0.0 -0.5,
+                                                    3.0 0.0 0.0, 
+                                                    0.0 -1.0 -1.0,
+                                                    1.0 -1.0 -1.5,
+                                                    2.0 -1.0 -1.75,
+                                                    4.0 -1.0 -1.75,
+                                                    4.0 -1.0 -1.0,
+                                                    2.5 -1.0 -0.5,
+                                                    3.0 -1.0 0.0,
+                                                    0.0 -1.0 0.0' />
+                            </IndexedFaceSet>
                         </Shape>
                     </Transform>
                 </Transform>
@@ -578,14 +2754,14 @@
 
                     <Shape>
                         <appearance>
-                            <material diffuseColor='0 0 0'></material>
+                            <material diffuseColor='1 1 0'></material>
                         </appearance>
                         <cylinder radius='0.2' height='4.2' />
                     </Shape>
 
                 </Transform>
 
-                <!-- Steerer block-->
+                <!-- Steerer block
                 <Transform translation='7.75 0 -3.7'>
 
                     <Shape>
@@ -595,7 +2771,7 @@
                         <sphere radius='0.1' />
                     </Shape>
 
-                </Transform>
+                </Transform> -->
 
             </Group>
 
@@ -604,12 +2780,117 @@
 
                 <!--Chainring-->
                 <Transform translation='3.95 0.25 0.5'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.4' height='0.05' />
-                    </Shape>
+                    <Transform DEF='DriveTrain'>
+                        <Shape>
+                            <appearance>
+                                <material diffuseColor='0.7 0.7 0.7'></material>
+                            </appearance>
+                            <cylinder radius='0.4' height='0.05' />
+                        </Shape>
+                        <Transform translation='0 0 -0.40'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <box size='0.05 ,0.05,0.05' />
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='0 0 0.40'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <box size='0.05 ,0.05,0.05' />
+                            </Shape>
+                        </Transform>
+
+
+                        <Transform translation='0.40 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <box size='0.05 ,0.05,0.05' />
+                            </Shape>
+                        </Transform>
+
+                        <Transform translation='-0.40 0 0'>
+                            <Shape>
+                                <appearance>
+                                    <material diffuseColor='0.7 0.7 0.7'></material>
+                                </appearance>
+                                <box size='0.05 ,0.05,0.05' />
+                            </Shape>
+                        </Transform>
+
+
+                        <Transform translation='-0.30 0 0.27'>
+                            <Transform rotation="0 1 0 0.785398">
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+                        </Transfrom>
+
+
+                        <Transform translation='-0.30 0 -0.27'>
+                            <Transform rotation="0 1 0 0.785398">
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+                        </Transfrom>
+
+
+                        <Transform translation='0.30 0 0.27'>
+                            <Transform rotation="0 1 0 0.785398">
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+                        </Transfrom>
+
+                        <Transform translation='0.30 0 -0.27'>
+                            <Transform rotation="0 1 0 0.785398">
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0.7 0.7 0.7'></material>
+                                    </appearance>
+                                    <box size='0.05,0.05,0.05' />
+                                </Shape>
+                            </Transform>
+                        </Transform>
+                        </Transfrom>
+
+                        <!--Right Crank-->
+                        <Transform translation='0.4 00 0.5'>
+                            <Transform rotation='0 1 0 -0.861799'>
+
+                                <Shape>
+                                    <appearance>
+                                        <material diffuseColor='0 0 0'></material>
+                                    </appearance>
+                                    <box size='0.9, 0.1, 0.1' />
+                                </Shape>
+
+                            </Transform>
+                        </Transform>
+
+
+                    </Transform>
                 </Transform>
 
 
@@ -624,32 +2905,79 @@
                 </Transform>
 
 
-                <!--Right Crank-->
-                <Transform translation='4.35 0.25 0.6'>
-                    <Transform rotation='0 1 0 -0.261799'>
-                        <Shape>
-                            <appearance>
-                                <material diffuseColor='0 0 0'></material>
-                            </appearance>
-                            <box size='0.9, 0.1, 0.1' />
-                        </Shape>
-                    </Transform>
-                </Transform>
+
 
 
                 <!--Left Crank-->
                 <Transform translation='3.55 -0.25 0.4'>
+
                     <Transform rotation='0 1 0 -0.261799'>
+
                         <Shape>
                             <appearance>
                                 <material diffuseColor='0 0 0'></material>
                             </appearance>
                             <box size='0.9, 0.1, 0.1' />
                         </Shape>
+
                     </Transform>
                 </Transform>
 
+
+                <!--Chain-->
+                <!-- <Transform translation='3.95 0.25 0.5'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.7 0.7 0.7'></material>
+                        </appearance>
+                        <cylinder radius='0.5' height='0.05' top='false' bottom='false' />
+                    </Shape>
+                </Transform> -->
+
+
+
+                <!-- <timeSensor DEF='clock' cycleInterval='12' loop='true'></timeSensor>
+            <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
+            <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
+            <Route fromNode="spin" fromField="value_changed" toNode="DriveTrain" toField="set_rotation"> </Route> -->
+
+
             </Group>
+
+
+
+            <Group DEF='saddle'>
+                <Transform translation='1.8,0,-6'>
+                    <Transform scale='0.3,0.15,0.3'>
+                        <Shape>
+                            <Appearance>
+                                <Material diffuseColor='0 0 0' />
+                            </Appearance>
+
+                            <!--Back-->
+                            <!--Right side-->
+                            <!--Left side-->
+                            <!--Top view small triangle-->
+                            <!--Top view big triangle-->
+                            <IndexedFaceSet coordIndex='0,3,2,1,0,-1 
+                            3,4,5,2,-1
+                            5,4,0,1,-1
+                            1,2,5,1,-1
+                            3,0,4,3,-1'>
+                                <!-- 1st block of point coordinates: lighting bolt tip
+                            2nd block: front perimeter 3rd block: back perimeter -->
+                                <Coordinate point='0.0 3.0 0.0,
+                            0.0 2.0 1.0,
+                            0.0 -2.0 1.0,
+                            0.0 -3.0 0.0,
+                            5.0 0.0 0.0,
+                            6.0 0.0 1.0 ' />
+                            </IndexedFaceSet>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Group>
+
         </scene>
     </x3d>
 </body>
