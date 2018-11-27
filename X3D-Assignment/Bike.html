@@ -9,8 +9,17 @@
 
 <body>
     <h1 style="text-align: center; ">CT404 Bike</h1>
-    <x3d width='1300' height=$(window).height()>
+    <button onclick="document.getElementById('Gears').setAttribute('set_bind','true');">Gears</button>
+    <button onclick="document.getElementById('Side').setAttribute('set_bind','true');">Side View </button>
+    <button onclick="document.getElementById('ChainRing').setAttribute('set_bind','true');">ChainRing</button>
+    <x3d width='1300' height=600>
         <scene DEF='scene'>
+                <Viewpoint id="Side" position="5.49857 17.04164 -4.67323" orientation="-0.99975 0.00010 -0.02221 1.62534"
+                zNear="0" zFar="53.74678" description="camera"></Viewpoint>
+                <Viewpoint id="Gears" position="-1.23342 0.87054 -0.53135" orientation="-0.67523 -0.71661 0.17473 1.87206" description="camera"></Viewpoint>
+                
+                <Viewpoint id="ChainRing" position="5.11563 1.20004 0.78300" orientation="-0.85969 0.16386 -0.48381 1.62693"  description="camera"></Viewpoint>
+
                 <Background backUrl='background.jpg''></Background>
 
             <Transform DEF="RearWheel">
@@ -382,19 +391,10 @@
 
             </Transform>
 
-            <timeSensor DEF='clock' cycleInterval='8' loop='true'></timeSensor>
+            <timeSensor DEF='clock' cycleInterval='4' loop='true'></timeSensor>
             <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
             <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
             <Route fromNode="spin" fromField="value_changed" toNode="RearWheel" toField="set_rotation"> </Route>
-
-
-
-
-
-
-
-
-
 
 
             <Transform translation="9.72 0 0">
@@ -404,7 +404,7 @@
 
             </Transform>
 
-            <timeSensor DEF='clock' cycleInterval='8' loop='true'></timeSensor>
+            <timeSensor DEF='clock' cycleInterval='4' loop='true'></timeSensor>
             <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
             <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
             <Route fromNode="spin" fromField="value_changed" toNode="FrontWheel" toField="set_rotation">
@@ -422,7 +422,7 @@
                                 
                                 <Shape>
                                     <appearance>
-                                        <material diffuseColor='0 0 0'></material>
+                                            <ImageTexture url="gearTexture.jpg">
                                     </appearance>
                                     <cylinder height="0.11" radius="0.04" />
 
@@ -988,6 +988,7 @@
                 </Transform>
 
                 <!-- Bars-->
+                <!--Stem-->
                 <Transform translation='8 -0.25 -2.9'>
                         <Transform scale='0.35,0.5,0.5'>
                     <Transform rotation="0 0 1 1.5783">
@@ -997,18 +998,9 @@
 
                                     <Shape>
                                         <Appearance>
-                                                <ImageTexture url="frameCoating.jpg">
+                                                <ImageTexture url="tape.jpg">
                                         </Appearance>
 
-                                        <!--Back-->
-                                        <!--Right side-->
-                                        <!--Left side-->
-                                        <!--First angled top piece-->
-                                        <!--Second angled top piece-->
-                                        <!--Long top piece-->
-                                        <!--Front flat square-->
-                                        <!--Front long slant-->
-                                        <!--Front short slant-->
                                         <IndexedFaceSet coordIndex='
                                             0,1,2,3,4,-1 
                                             5,0,4,9,-1
@@ -1051,18 +1043,9 @@
                                 <Transform translation="-1 2 0">
                                     <Shape>
                                         <Appearance>
-                                                <ImageTexture url="frameCoating.jpg">
+                                                <ImageTexture url="tape.jpg">
                                         </Appearance>
 
-                                        <!--Back-->
-                                        <!--Right side-->
-                                        <!--Left side-->
-                                        <!--First angled top piece-->
-                                        <!--Second angled top piece-->
-                                        <!--Long top piece-->
-                                        <!--Front flat square-->
-                                        <!--Front long slant-->
-                                        <!--Front short slant-->
                                         <IndexedFaceSet coordIndex='
                                                 0,1,2,3,4,-1 
                                                 5,0,4,9,-1
@@ -1096,18 +1079,6 @@
 
                 </Transform>
 
-                <!-- Steerer block
-                <Transform translation='7.75 0 -3.7'>
-
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0 0.5 0'></material>
-                        </appearance>
-                        <sphere radius='0.1' />
-                    </Shape>
-
-                </Transform> -->
-
             </Group>
 
 
@@ -1135,7 +1106,6 @@
                                 <Shape USE="Tooth" />
                         </Transform>
 
-
                         <Transform translation='0.40 0 0'>
                                 <Shape USE="Tooth" />
                         </Transform>
@@ -1143,7 +1113,6 @@
                         <Transform translation='-0.40 0 0'>
                                 <Shape USE="Tooth" />
                         </Transform>
-
 
                         <Transform translation='-0.30 0 0.27'>
                             <Transform rotation="0 1 0 0.785398">
@@ -1231,26 +1200,7 @@
                     </Shape>
                 </Transform>
 
-
-
-
-
-
-
-
-                <!--Chain-->
-                <!-- <Transform translation='3.95 0.25 0.5'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.5' height='0.05' top='false' bottom='false' />
-                    </Shape>
-                </Transform> -->
-
-
-
-                <timeSensor DEF='clock' cycleInterval='10' loop='true'></timeSensor>
+                <timeSensor DEF='clock' cycleInterval='6' loop='true'></timeSensor>
                 <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
                 <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
                 <Route fromNode="spin" fromField="value_changed" toNode="DriveTrain" toField="set_rotation"> </Route>
