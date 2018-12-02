@@ -14,13 +14,15 @@
     <button onclick="document.getElementById('ChainRing').setAttribute('set_bind','true');">ChainRing</button>
     <x3d width='1400' height=600>
         <scene DEF='scene'>
-                <Viewpoint id="Side" position="5.49857 17.04164 -4.67323" orientation="-0.99975 0.00010 -0.02221 1.62534"
+            <Viewpoint id="Side" position="5.49857 17.04164 -4.67323" orientation="-0.99975 0.00010 -0.02221 1.62534"
                 zNear="0" zFar="53.74678" description="camera"></Viewpoint>
-                <Viewpoint id="Gears" position="-1.23342 0.87054 -0.53135" orientation="-0.67523 -0.71661 0.17473 1.87206" description="camera"></Viewpoint>
-                
-                <Viewpoint id="ChainRing" position="5.11563 1.20004 0.78300" orientation="-0.85969 0.16386 -0.48381 1.62693"  description="camera"></Viewpoint>
+            <Viewpoint id="Gears" position="-1.23342 0.87054 -0.53135" orientation="-0.67523 -0.71661 0.17473 1.87206"
+                description="camera"></Viewpoint>
 
-                <Background backUrl='background.jpg'></Background>
+            <Viewpoint id="ChainRing" position="5.11563 1.20004 0.78300" orientation="-0.85969 0.16386 -0.48381 1.62693"
+                description="camera"></Viewpoint>
+
+            <Background backUrl='background.jpg'></Background>
 
             <Transform DEF="RearWheel">
                 <Group Def='Wheel'>
@@ -28,7 +30,7 @@
                     <!--Wheel-->
                     <Shape>
                         <appearance>
-                                <ImageTexture url="frameCoating.jpg">
+                            <ImageTexture url="frameCoating.jpg">
                         </appearance>
                         <Cylinder bottom="false" top="false" solid="false" height='0.23' radius='3.11' />
                     </Shape>
@@ -386,16 +388,12 @@
 
                 </Group>
 
-
-
-
             </Transform>
 
             <timeSensor DEF='clock' cycleInterval='4' loop='true'></timeSensor>
             <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
             <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
             <Route fromNode="spin" fromField="value_changed" toNode="RearWheel" toField="set_rotation"> </Route>
-
 
             <Transform translation="9.72 0 0">
                 <Transform DEF='FrontWheel'>
@@ -410,19 +408,16 @@
             <Route fromNode="spin" fromField="value_changed" toNode="FrontWheel" toField="set_rotation">
             </Route>
 
-
-
-
-              <!--Top of chain-->
-                <Transform translation='4.2 0.25 0.08'>
-                    <Transform rotation='0 1 0 -.082173'>
-                            <Group DEF="Link">
+            <!--Top of chain-->
+            <Transform translation='4.2 0.25 0.08'>
+                <Transform rotation='0 1 0 -.082173'>
+                    <Group DEF="Link">
                         <Transform translation='0.03 0 0.8'>
                             <Transform rotation="0 1 0 -2.65">
-                                
+
                                 <Shape>
                                     <appearance>
-                                            <ImageTexture url="gearTexture.jpg">
+                                        <ImageTexture url="gearTexture.jpg">
                                     </appearance>
                                     <cylinder height="0.11" radius="0.04" />
 
@@ -430,7 +425,7 @@
                                 <Transform translation='0 0.049 0'>
                                     <Shape>
                                         <appearance>
-                                                <ImageTexture url="chain.jpg">
+                                            <ImageTexture url="chain.jpg">
                                         </appearance>
                                         <cylinder height="0" radius="0.08" />
 
@@ -439,7 +434,7 @@
                                 <Transform translation='0 -0.049 0'>
                                     <Shape>
                                         <appearance>
-                                                <ImageTexture url="chain.jpg">
+                                            <ImageTexture url="chain.jpg">
                                         </appearance>
                                         <cylinder height="0" radius="0.08" />
 
@@ -451,78 +446,78 @@
                         <Transform translation='0.13 0 0.75'>
                             <Transform rotation="0 1 0 -2.65">
                                 <Group DEF="Link">
-                                <Shape>
-                                    <appearance>
+                                    <Shape>
+                                        <appearance>
                                             <ImageTexture url="gearTexture.jpg">
-                                    </appearance>
-                                    <cylinder height="0.11" radius="0.04" />
-
-                                </Shape>
-                                <Transform translation='0 0.049 0'>
-                                    <Shape>
-                                        <appearance>
-                                                <ImageTexture url="chain.jpg">
                                         </appearance>
-                                        <cylinder height="0" radius="0.08" />
+                                        <cylinder height="0.11" radius="0.04" />
 
                                     </Shape>
-                                </Transform>
-                                <Transform translation='0 -0.049 0'>
-                                    <Shape>
-                                        <appearance>
+                                    <Transform translation='0 0.049 0'>
+                                        <Shape>
+                                            <appearance>
                                                 <ImageTexture url="chain.jpg">
-                                        </appearance>
-                                        <cylinder height="0" radius="0.08" />
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
 
-                                    </Shape>
-                                </Transform>
-
-                                <Transform translation='0.1 -0.049 0'>
-                                    <Shape>
-                                        <appearance>
+                                        </Shape>
+                                    </Transform>
+                                    <Transform translation='0 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
                                                 <ImageTexture url="chain.jpg">
-                                        </appearance>
-                                        <box size="0.13,0.01,0.03" />
+                                            </appearance>
+                                            <cylinder height="0" radius="0.08" />
 
-                                    </Shape>
-                                </Transform>
+                                        </Shape>
+                                    </Transform>
 
-                                <Transform translation='0.1 0.049 0'>
-                                    <Shape>
-                                        <appearance>
+                                    <Transform translation='0.1 -0.049 0'>
+                                        <Shape>
+                                            <appearance>
                                                 <ImageTexture url="chain.jpg">
-                                        </appearance>
-                                        <box size="0.13,0.01,0.03" />
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
 
-                                    </Shape>
-                                </Transform>
-                            </Group>
+                                        </Shape>
+                                    </Transform>
+
+                                    <Transform translation='0.1 0.049 0'>
+                                        <Shape>
+                                            <appearance>
+                                                <ImageTexture url="chain.jpg">
+                                            </appearance>
+                                            <box size="0.13,0.01,0.03" />
+
+                                        </Shape>
+                                    </Transform>
+                                </Group>
                             </Transform>
                         </Transform>
 
                         <Transform translation='0.20 0 0.55'>
                             <Transform rotation="0 1 0 -1.9">
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
 
                             </Transform>
                         </Transform>
 
                         <Transform translation='0.21 0 0.35'>
                             <Transform rotation="0 1 0 -1.5708">
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
 
                             </Transform>
                         </Transform>
 
                         <Transform translation='0.17 0 0.15'>
                             <Transform rotation="0 1 0 -1.3">
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
                             </Transform>
                         </Transform>
 
                         <Transform translation='0 0 .05'>
                             <Transform rotation="0 1 0 -0.5">
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
 
                             </Transform>
                         </Transform>
@@ -530,208 +525,207 @@
 
                         <Transform translation='-0.21 0 0'>
                             <Transform rotation='0 1 0 -0.2'>
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
 
                             </Transform>
                         </Transform>
 
                         <Transform translation='-0.42 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-0.63 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-0.84 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-1.05 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-1.26 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-1.47 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-1.68 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
                         <Transform translation='-1.89 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
 
                         <Transform translation='-2.1 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-2.31 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-2.52 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-2.73 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
                         <Transform translation='-2.94 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
 
 
                         <Transform translation='-3.15 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-3.36 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-3.57 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
                         <Transform translation='-3.78 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
 
                         <Transform translation='-3.99 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
 
                         </Transform>
 
                         <Transform translation='-4.2 0 0'>
-                                <Shape USE="Link" />
+                            <Shape USE="Link" />
                         </Transform>
 
                         <Transform translation='-4.41 0 0.06'>
                             <Transform rotation='0 1 0 .4'>
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
                             </Transform>
                         </Transform>
 
                         <Transform translation='-4.45 0 0.26'>
                             <Transform rotation='0 1 0 1.4'>
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
                             </Transform>
                         </Transform>
 
                         <Transform translation='-4.38 0 0.46'>
                             <Transform rotation='0 1 0 1.8908'>
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
                             </Transform>
                         </Transform>
 
 
                         <Transform translation='-4.25 0 0.62'>
                             <Transform rotation='0 1 0 2.2908'>
-                                    <Shape USE="Link" />
+                                <Shape USE="Link" />
                             </Transform>
                         </Transform>
 
+                </Transform>
+            </Transform>
+
+            <!--Bottom of chain-->
+            <Transform translation='4.2 0.25 0.9'>
+
+                <Transform rotation='0 -1 0 0.13'>
+                    <Transform translation='-0.21 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+
+                    <Transform translation='-0.42 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-0.63 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-0.84 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-1.05 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+
+                    <Transform translation='-1.26 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+                    <Transform translation='-1.47 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-1.68 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-1.89 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+
+                    <Transform translation='-2.1 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-2.31 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+
+                    <Transform translation='-2.52 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+
+                    <Transform translation='-2.73 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+                    <Transform translation='-2.94 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+
+                    <Transform translation='-3.15 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+
+                    <Transform translation='-3.36 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+
+                    <Transform translation='-3.57 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+                    <Transform translation='-3.78 0 0'>
+                        <Shape USE="Link" />
+                    </Transform>
+
+
+                    <Transform translation='-3.99 0 0'>
+                        <Shape USE="Link" />
+
+                    </Transform>
+
+                    <Transform translation='-4.2 0 0'>
+                        <Shape USE="Link" />
+
                     </Transform>
                 </Transform>
-
-                <!--Bottom of chain-->
-                <Transform translation='4.2 0.25 0.9'>
-
-                    <Transform rotation='0 -1 0 0.13'>
-                        <Transform translation='-0.21 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-
-                        <Transform translation='-0.42 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-0.63 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-0.84 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-1.05 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-
-                        <Transform translation='-1.26 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-                        <Transform translation='-1.47 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-1.68 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-1.89 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-
-                        <Transform translation='-2.1 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-2.31 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-
-                        <Transform translation='-2.52 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-
-                        <Transform translation='-2.73 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                        <Transform translation='-2.94 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-
-                        <Transform translation='-3.15 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-
-                        <Transform translation='-3.36 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-
-                        <Transform translation='-3.57 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-                        <Transform translation='-3.78 0 0'>
-                                <Shape USE="Link" />
-                        </Transform>
-
-
-                        <Transform translation='-3.99 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-
-                        <Transform translation='-4.2 0 0'>
-                                <Shape USE="Link" />
-
-                        </Transform>
-                    </Transform>
-                </Transform>
+            </Transform>
 
             </Group>
-
 
             <Group Def="Frame Right">
 
@@ -741,7 +735,7 @@
                         <Transform rotation='1 0 0 -1.317724'>
                             <Shape>
                                 <appearance>
-                                        <ImageTexture url="gradient.png">
+                                    <ImageTexture url="gradient.png">
                                 </appearance>
                                 <cylinder height="4.55" radius="0.08" />
                             </Shape>
@@ -755,7 +749,7 @@
                         <Transform rotation='1 0 0 -1.317724'>
                             <Shape>
                                 <appearance>
-                                        <ImageTexture url="frameCoating.jpg">
+                                    <ImageTexture url="frameCoating.jpg">
                                 </appearance>
                                 <cylinder height="3" radius="0.06" />
                             </Shape>
@@ -763,15 +757,13 @@
                     </Transform>
                 </Transform>
 
-
-
                 <!--Chainstay-->
                 <Transform translation='1.95 0.3 0.3'>
                     <Transform rotation='0 0 1 1.5708'>
                         <Transform rotation='1 0 1 -0.174533'>
                             <Shape>
                                 <appearance>
-                                        <ImageTexture url="body1.jpg">
+                                    <ImageTexture url="body1.jpg">
                                 </appearance>
                                 <cylinder height="4.1" radius="0.08" />
                             </Shape>
@@ -787,7 +779,7 @@
 
                             <Shape>
                                 <appearance>
-                                        <ImageTexture url="whiteBlack.jpg">
+                                    <ImageTexture url="whiteBlack.jpg">
                                 </appearance>
                                 <cylinder height="4.55" radius="0.08" />
                             </Shape>
@@ -800,7 +792,7 @@
                     <Transform rotation='0 0 1 1.5708'>
                         <Shape>
                             <appearance>
-                                    <ImageTexture url="frameCoating.jpg">
+                                <ImageTexture url="frameCoating.jpg">
                             </appearance>
                             <cylinder height="0.3" radius="0.12" />
                         </Shape>
@@ -812,7 +804,7 @@
 
                         <Shape>
                             <appearance>
-                                    <ImageTexture url="whiteBlack.jpg">
+                                <ImageTexture url="whiteBlack.jpg">
                             </appearance>
                             <cylinder height="5.08" radius="0.08" />
                         </Shape>
@@ -824,7 +816,7 @@
                     <Transform rotation='0.85 0 1 1.5708'>
                         <Shape>
                             <appearance>
-                                    <ImageTexture url="white.png">
+                                <ImageTexture url="white.png">
                             </appearance>
                             <cylinder height="5.2" radius="0.08" />
                         </Shape>
@@ -837,7 +829,7 @@
                         <Transform rotation='1 0 0 -1.2522737'>
                             <Shape>
                                 <appearance>
-                                        <ImageTexture url="whiteBlack.jpg">
+                                    <ImageTexture url="whiteBlack.jpg">
                                 </appearance>
                                 <cylinder height="1.04" radius="0.08" />
                             </Shape>
@@ -849,111 +841,105 @@
                 <Transform translation='8.04 0 -2.7'>
                     <Shape>
                         <appearance>
-                                <ImageTexture url="whiteBlack.jpg">
+                            <ImageTexture url="whiteBlack.jpg">
                         </appearance>
                         <cylinder height="0.5" radius="0.08" />
                     </Shape>
                 </Transform>
 
-           
+                <Group Def="Frame Left">
 
-            <Group Def="Frame Left">
-
-                <!--Chainstay-->
-                <Transform translation='1.95 -0.3 0.3'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Transform rotation='1 0 -1 -0.174533'>
-                            <Shape>
-                                <appearance>
+                    <!--Chainstay-->
+                    <Transform translation='1.95 -0.3 0.3'>
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 -1 -0.174533'>
+                                <Shape>
+                                    <appearance>
                                         <ImageTexture url="body1.jpg">
-                                </appearance>
-                                <cylinder height="4.1" radius="0.08" />
-                            </Shape>
+                                    </appearance>
+                                    <cylinder height="4.1" radius="0.08" />
+                                </Shape>
+                            </Transform>
                         </Transform>
                     </Transform>
-                </Transform>
 
-                <!--Seatstay-->
-                <Transform translation='1.35 -0.3 -1.7'>
-                    <Transform rotation='-1 0 -1 1.5708'>
-                        <Transform rotation='0 0 -1 -0.174533'>
+                    <!--Seatstay-->
+                    <Transform translation='1.35 -0.3 -1.7'>
+                        <Transform rotation='-1 0 -1 1.5708'>
+                            <Transform rotation='0 0 -1 -0.174533'>
 
-                            <Shape>
-                                <appearance>
+                                <Shape>
+                                    <appearance>
                                         <ImageTexture url="whiteBlack.jpg">
-                                </appearance>
-                                <cylinder height="4.55" radius="0.08" />
-                            </Shape>
+                                    </appearance>
+                                    <cylinder height="4.55" radius="0.08" />
+                                </Shape>
+                            </Transform>
                         </Transform>
                     </Transform>
-                </Transform>
-            </Group>
+                </Group>
 
-            <Group DEF='Front Forks'>
+                <Group DEF='Front Forks'>
 
-                <!-- Left Fork-->
-                <Transform translation='8.85 -0.25 -1.35'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Transform rotation='1 0 0 -1.0'>
-                            <Shape>
-                                <appearance>
+                    <!-- Left Fork-->
+                    <Transform translation='8.85 -0.25 -1.35'>
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 -1.0'>
+                                <Shape>
+                                    <appearance>
                                         <ImageTexture url="whiteBlack.jpg">
-                                </appearance>
-                                <cylinder height="3.3" radius="0.08" />
-                            </Shape>
+                                    </appearance>
+                                    <cylinder height="3.3" radius="0.08" />
+                                </Shape>
+                            </Transform>
                         </Transform>
                     </Transform>
-                </Transform>
 
 
-                <!-- Right Fork-->
-                <Transform translation='8.85 0.25 -1.35'>
-                    <Transform rotation='0 0 1 1.5708'>
-                        <Transform rotation='1 0 0 -1.0'>
-                            <Shape>
-                                <appearance>
+                    <!-- Right Fork-->
+                    <Transform translation='8.85 0.25 -1.35'>
+                        <Transform rotation='0 0 1 1.5708'>
+                            <Transform rotation='1 0 0 -1.0'>
+                                <Shape>
+                                    <appearance>
                                         <ImageTexture url="whiteBlack.jpg">
-                                </appearance>
-                                <cylinder height="3.3" radius="0.08" />
-                            </Shape>
+                                    </appearance>
+                                    <cylinder height="3.3" radius="0.08" />
+                                </Shape>
+                            </Transform>
                         </Transform>
                     </Transform>
-                </Transform>
 
-
-                <!--Thru Axle Front-->
-                <Transform translation="9.72 0 0">
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0 0 0'></material>
-                        </appearance>
-                        <cylinder radius='0.05' height='0.7' />
-                    </Shape>
-                </Transform>
-            </Group>
-
-            <Group DEF='Handlebars'>
-
-
-
-
-                <Transform translation='7.5 0.05 -3.5'>
-                    <Transform scale='0.15,0.1,0.15'>
+                    <!--Thru Axle Front-->
+                    <Transform translation="9.72 0 0">
                         <Shape>
-                            <Appearance>
-                                    <ImageTexture url="whiteBlack.jpg">
-                            </Appearance>
+                            <appearance>
+                                <material diffuseColor='0 0 0'></material>
+                            </appearance>
+                            <cylinder radius='0.05' height='0.7' />
+                        </Shape>
+                    </Transform>
+                </Group>
 
-                            <!--Back-->
-                            <!--Right side-->
-                            <!--Left side-->
-                            <!--First angled top piece-->
-                            <!--Second angled top piece-->
-                            <!--Long top piece-->
-                            <!--Front flat square-->
-                            <!--Front long slant-->
-                            <!--Front short slant-->
-                            <IndexedFaceSet coordIndex='
+                <Group DEF='Handlebars'>
+
+                    <Transform translation='7.5 0.05 -3.5'>
+                        <Transform scale='0.15,0.1,0.15'>
+                            <Shape>
+                                <Appearance>
+                                    <ImageTexture url="whiteBlack.jpg">
+                                </Appearance>
+
+                                <!--Back-->
+                                <!--Right side-->
+                                <!--Left side-->
+                                <!--First angled top piece-->
+                                <!--Second angled top piece-->
+                                <!--Long top piece-->
+                                <!--Front flat square-->
+                                <!--Front long slant-->
+                                <!--Front short slant-->
+                                <IndexedFaceSet coordIndex='
                             15,0,1,8-1            
                             0,7,6,5,4,3,2,1,-1 
                             8,9,10,11,12,13,14,15,-1
@@ -964,9 +950,9 @@
                             12,5,6,13, -1
                             13,6,7,14, -1
                             14,7,0,15,-1'>
-                                <!-- 1st block of point coordinates: lighting bolt tip
+                                    <!-- 1st block of point coordinates: lighting bolt tip
                                                     2nd block: front perimeter 3rd block: back perimeter -->
-                                <Coordinate point='0.0 0.0 0.0,
+                                    <Coordinate point='0.0 0.0 0.0,
                                                     0.0 0.0 -1.0,
                                                     1.0 0.0 -1.5,
                                                     2.0 0.0 -1.75,
@@ -982,26 +968,26 @@
                                                     2.5 -1.0 -0.5,
                                                     3.0 -1.0 0.0,
                                                     0.0 -1.0 0.0' />
-                            </IndexedFaceSet>
-                        </Shape>
+                                </IndexedFaceSet>
+                            </Shape>
+                        </Transform>
                     </Transform>
-                </Transform>
 
-                <!-- Bars-->
-                <!--Stem-->
-                <Transform translation='8 -0.25 -2.9'>
+                    <!-- Bars-->
+                    <!--Stem-->
+                    <Transform translation='8 -0.25 -2.9'>
                         <Transform scale='0.35,0.5,0.5'>
-                    <Transform rotation="0 0 1 1.5783">
-                        <Transform rotation="0 1 0 3.14">
-                            <Transform rotation="1 0 0 1.5783">
-                                <Transform translation="0 2 0">
+                            <Transform rotation="0 0 1 1.5783">
+                                <Transform rotation="0 1 0 3.14">
+                                    <Transform rotation="1 0 0 1.5783">
+                                        <Transform translation="0 2 0">
 
-                                    <Shape>
-                                        <Appearance>
-                                                <ImageTexture url="tape.jpg">
-                                        </Appearance>
+                                            <Shape>
+                                                <Appearance>
+                                                    <ImageTexture url="tape.jpg">
+                                                </Appearance>
 
-                                        <IndexedFaceSet coordIndex='
+                                                <IndexedFaceSet coordIndex='
                                             0,1,2,3,4,-1 
                                             5,0,4,9,-1
                                             7,5,9,8,-1   
@@ -1009,9 +995,9 @@
                                             5,6,7,2,1,0,-1 
                                             9,4,3,8,-1      
                                             '>
-                                            <!-- 1st block of point coordinates: lighting bolt tip
+                                                    <!-- 1st block of point coordinates: lighting bolt tip
                                                                     2nd block: front perimeter 3rd block: back perimeter -->
-                                            <Coordinate point=' 0 0 0.5
+                                                    <Coordinate point=' 0 0 0.5
                                                                     1.2 0 1
                                                                     4 0 1 
                                                                     4 0 0 
@@ -1021,32 +1007,32 @@
                                                                     4 -0.5 0.5 
                                                                     4 -0.5 0 
                                                                     0 -1 0' />
-                                        </IndexedFaceSet>
-                                    </Shape>
+                                                </IndexedFaceSet>
+                                            </Shape>
 
-                                </Transform>
+                                        </Transform>
 
-                                <Transform>
-                                    <Transform translation='-0.5 1.5 0.3'>
-                                        <Transform rotation='0 0 1 1.5783'>
+                                        <Transform>
+                                            <Transform translation='-0.5 1.5 0.3'>
+                                                <Transform rotation='0 0 1 1.5783'>
 
+                                                    <Shape>
+                                                        <Appearance>
+                                                            <ImageTexture url="frameCoating.jpg">
+                                                        </Appearance>
+                                                        <cylinder radius='0.5' height='1' />
+                                                    </Shape>
+                                                </Transform>
+                                            </Transform>
+                                        </Transform>
+
+                                        <Transform translation="-1 2 0">
                                             <Shape>
                                                 <Appearance>
-                                                        <ImageTexture url="frameCoating.jpg">
+                                                    <ImageTexture url="tape.jpg">
                                                 </Appearance>
-                                                <cylinder radius='0.5' height='1' />
-                                            </Shape>
-                                        </Transform>
-                                    </Transform>
-                                </Transform>
 
-                                <Transform translation="-1 2 0">
-                                    <Shape>
-                                        <Appearance>
-                                                <ImageTexture url="tape.jpg">
-                                        </Appearance>
-
-                                        <IndexedFaceSet coordIndex='
+                                                <IndexedFaceSet coordIndex='
                                                 0,1,2,3,4,-1 
                                                 5,0,4,9,-1
                                                 7,5,9,8,-1   
@@ -1054,10 +1040,10 @@
                                                 5,6,7,2,1,0,-1 
                                                 9,4,3,8,-1      
                                                 '
-                                            ccw='false'>
-                                            <!-- 1st block of point coordinates: lighting bolt tip
+                                                    ccw='false'>
+                                                    <!-- 1st block of point coordinates: lighting bolt tip
                                                                         2nd block: front perimeter 3rd block: back perimeter -->
-                                            <Coordinate point=' 0 0 0.5
+                                                    <Coordinate point=' 0 0 0.5
                                                                         -1.2 0 1
                                                                         -4 0 1 
                                                                         -4 0 0 
@@ -1068,174 +1054,172 @@
                                                                        -4 -0.5 0 
                                                                         -0 -1 0' />
 
-                                        </IndexedFaceSet>
+                                                </IndexedFaceSet>
+                                            </Shape>
+
+                                        </Transform>
+                                    </Transform>
+                                </Transform>
+                            </Transform>
+                        </Transform>
+
+                    </Transform>
+
+                </Group>
+
+
+                <Group DEF='Drivetrain'>
+
+                    <!--Chainring-->
+                    <Transform translation='3.95 0.25 0.5'>
+                        <Transform DEF='DriveTrain'>
+                            <Shape>
+                                <appearance>
+                                    <ImageTexture url="frame.jpg">
+                                </appearance>
+                                <cylinder radius='0.4' height='0.05' />
+                            </Shape>
+                            <Transform translation='0 0 -0.40'>
+                                <Shape USE="Tooth" />
+                            </Transform>
+
+                            <Transform translation='0 0 0.40'>
+                                <Shape USE="Tooth" />
+                            </Transform>
+
+                            <Transform translation='0.40 0 0'>
+                                <Shape USE="Tooth" />
+                            </Transform>
+
+                            <Transform translation='-0.40 0 0'>
+                                <Shape USE="Tooth" />
+                            </Transform>
+
+                            <Transform translation='-0.30 0 0.27'>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape USE="Tooth" />
+                                </Transform>
+                            </Transform>
+                            </Transfrom>
+
+
+                            <Transform translation='-0.30 0 -0.27'>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape USE="Tooth" />
+                                </Transform>
+                            </Transform>
+                            </Transfrom>
+
+
+                            <Transform translation='0.30 0 0.27'>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape USE="Tooth" />
+                                </Transform>
+                            </Transform>
+                            </Transfrom>
+
+                            <Transform translation='0.30 0 -0.27'>
+                                <Transform rotation="0 1 0 0.785398">
+                                    <Shape USE="Tooth" />
+                                </Transform>
+                            </Transform>
+                            </Transfrom>
+
+                            <!--Right Crank-->
+                            <Transform translation='0.05 0.05 0'>
+                                <Transform rotation='0 1 0 -0.861799'>
+
+                                    <Shape>
+                                        <appearance>
+                                            <ImageTexture url="carbonFiber.jpg">
+                                        </appearance>
+                                        <box size='0.1, 0.1, 0.1' />
+                                    </Shape>
+                                </Transform>
+                            </Transform>
+
+                            <Transform translation='0.3 0.1 0.3'>
+                                <Transform rotation='0 1 0 -0.861799'>
+
+                                    <Shape>
+                                        <appearance>
+                                            <ImageTexture url="carbonFiber.jpg">
+                                        </appearance>
+                                        <box size='0.9, 0.1, 0.1' />
                                     </Shape>
 
                                 </Transform>
                             </Transform>
+
+                            <!--Left Crank-->
+                            <Transform translation='-0.3 -0.5 -0.3'>
+
+                                <Transform rotation='0 1 0 -0.861799'>
+
+                                    <Shape>
+                                        <appearance>
+                                            <ImageTexture url="carbonFiber.jpg">
+                                        </appearance>
+                                        <box size='0.9, 0.1, 0.1' />
+                                    </Shape>
+
+                                </Transform>
+                            </Transform>
+
+
                         </Transform>
                     </Transform>
-                    </Transform>
-
-                </Transform>
-
-            </Group>
 
 
-            <Group DEF='Drivetrain'>
-
-                <!--Chainring-->
-                <Transform translation='3.95 0.25 0.5'>
-                    <Transform DEF='DriveTrain'>
+                    <!--Bottom Bracket-->
+                    <Transform translation='3.95 0 0.5'>
                         <Shape>
                             <appearance>
-                                    <ImageTexture url="frame.jpg">
+                                <material diffuseColor='0.7 0.7 0.7'></material>
                             </appearance>
-                            <cylinder radius='0.4' height='0.05' />
+                            <cylinder radius='0.1' height='0.5' />
                         </Shape>
-                        <Transform translation='0 0 -0.40'>
-                            <Shape USE="Tooth" />
-                        </Transform>
-
-                        <Transform translation='0 0 0.40'>
-                                <Shape USE="Tooth" />
-                        </Transform>
-
-                        <Transform translation='0.40 0 0'>
-                                <Shape USE="Tooth" />
-                        </Transform>
-
-                        <Transform translation='-0.40 0 0'>
-                                <Shape USE="Tooth" />
-                        </Transform>
-
-                        <Transform translation='-0.30 0 0.27'>
-                            <Transform rotation="0 1 0 0.785398">
-                                    <Shape USE="Tooth" />
-                            </Transform>
-                        </Transform>
-                        </Transfrom>
-
-
-                        <Transform translation='-0.30 0 -0.27'>
-                            <Transform rotation="0 1 0 0.785398">
-                                    <Shape USE="Tooth" />
-                            </Transform>
-                        </Transform>
-                        </Transfrom>
-
-
-                        <Transform translation='0.30 0 0.27'>
-                            <Transform rotation="0 1 0 0.785398">
-                                    <Shape USE="Tooth" />
-                            </Transform>
-                        </Transform>
-                        </Transfrom>
-
-                        <Transform translation='0.30 0 -0.27'>
-                            <Transform rotation="0 1 0 0.785398">
-                                    <Shape USE="Tooth" />
-                            </Transform>
-                        </Transform>
-                        </Transfrom>
-
-                        <!--Right Crank-->
-                        <Transform translation='0.05 0.05 0'>
-                            <Transform rotation='0 1 0 -0.861799'>
-
-                                <Shape>
-                                    <appearance>
-                                            <ImageTexture url="carbonFiber.jpg">
-                                    </appearance>
-                                    <box size='0.1, 0.1, 0.1' />
-                                </Shape>
-                            </Transform>
-                        </Transform>
-
-                        <Transform translation='0.3 0.1 0.3'>
-                            <Transform rotation='0 1 0 -0.861799'>
-
-                                <Shape>
-                                    <appearance>
-                                            <ImageTexture url="carbonFiber.jpg">
-                                    </appearance>
-                                    <box size='0.9, 0.1, 0.1' />
-                                </Shape>
-
-                            </Transform>
-                        </Transform>
-
-                        <!--Left Crank-->
-                        <Transform translation='-0.3 -0.5 -0.3'>
-
-                            <Transform rotation='0 1 0 -0.861799'>
-
-                                <Shape>
-                                    <appearance>
-                                            <ImageTexture url="carbonFiber.jpg">
-                                    </appearance>
-                                    <box size='0.9, 0.1, 0.1' />
-                                </Shape>
-
-                            </Transform>
-                        </Transform>
-
-
                     </Transform>
-                </Transform>
 
+                    <timeSensor DEF='clock' cycleInterval='6' loop='true'></timeSensor>
+                    <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
+                    <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
+                    <Route fromNode="spin" fromField="value_changed" toNode="DriveTrain" toField="set_rotation">
+                    </Route>
 
-                <!--Bottom Bracket-->
-                <Transform translation='3.95 0 0.5'>
-                    <Shape>
-                        <appearance>
-                            <material diffuseColor='0.7 0.7 0.7'></material>
-                        </appearance>
-                        <cylinder radius='0.1' height='0.5' />
-                    </Shape>
-                </Transform>
+                </Group>
 
-                <timeSensor DEF='clock' cycleInterval='6' loop='true'></timeSensor>
-                <orientationInterpolator DEF='spin' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 -1.57079  0 1 0 -3.14159  0 1 0 -4.71239  0 1 0 -6.28317'></orientationInterpolator>
-                <Route fromNode="clock" fromField="fraction_changed" toNode="spin" toField="set_fraction"> </Route>
-                <Route fromNode="spin" fromField="value_changed" toNode="DriveTrain" toField="set_rotation"> </Route>
-
-
-            </Group>
-
-
-
-            <Group DEF='saddle'>
-                <Transform translation='1.8,0,-5.2'>
-                    <Transform scale='0.3,0.15,0.3'>
-                        <Shape>
-                            <Appearance>
+                <Group DEF='saddle'>
+                    <Transform translation='1.8,0,-5.2'>
+                        <Transform scale='0.3,0.15,0.3'>
+                            <Shape>
+                                <Appearance>
                                     <ImageTexture url="saddle.jpg">
-                            </Appearance>
+                                </Appearance>
 
-                            <!--Back-->
-                            <!--Right side-->
-                            <!--Left side-->
-                            <!--Top view small triangle-->
-                            <!--Top view big triangle-->
-                            <IndexedFaceSet coordIndex='0,3,2,1,0,-1 
+                                <!--Back-->
+                                <!--Right side-->
+                                <!--Left side-->
+                                <!--Top view small triangle-->
+                                <!--Top view big triangle-->
+                                <IndexedFaceSet coordIndex='0,3,2,1,0,-1 
                             3,4,5,2,-1
                             5,4,0,1,-1
                             1,2,5,1,-1
                             3,0,4,3,-1'>
-                                <!-- 1st block of point coordinates: lighting bolt tip
+                                    <!-- 1st block of point coordinates: lighting bolt tip
                             2nd block: front perimeter 3rd block: back perimeter -->
-                                <Coordinate point='0.0 3.0 0.0,
+                                    <Coordinate point='0.0 3.0 0.0,
                             0.0 2.0 1.0,
                             0.0 -2.0 1.0,
                             0.0 -3.0 0.0,
                             5.0 0.0 0.0,
                             6.0 0.0 1.0 ' />
-                            </IndexedFaceSet>
-                        </Shape>
+                                </IndexedFaceSet>
+                            </Shape>
+                        </Transform>
                     </Transform>
-                </Transform>
-            </Group>
+                </Group>
 
         </scene>
     </x3d>
